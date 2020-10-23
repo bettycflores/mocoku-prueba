@@ -21,16 +21,18 @@ export default function StandScreen({ route, navigation }) {
       <Text>¡Felicitaciones!</Text>
       <Text>Escoge una de nuestras prendas únicas</Text>
 
-      {products.map((product)=> {
-        return <Image
-            key={product.id}
-            style={styles.product}
-            source={{uri: product.image}}
-            title={product.nombre}
-            onPress={() => navigation.navigate('Order', { product })} />
-      })}
+      <View style={styles.productList}>
+        {products.map((product)=> {
+          return <Image
+              key={product.id}
+              style={styles.product}
+              source={{uri: product.image}}
+              title={product.nombre}
+              onPress={() => navigation.navigate('Order', { product })} />
+        })}
+      </View>
 
-      <Button title="Atrás" onPress={() => navigation.navigate('Home')} />
+      <Button title="Atrás" onPress={() => navigation.navigate('Home')}/>
     </View>
   );
 }
@@ -42,10 +44,19 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  productList: {
+    justifyContent: 'center',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    alignItems: 'flex-start',
+    marginTop: 20,
+    marginBottom: 20,
+  },
   product: {
-    width: 100,
-    height: 100,
-    borderRadius: 100,
+    width: 80,
+    height: 80,
+    borderRadius: 200,
+    margin: 10,
     overflow: "hidden",
 },
 });
