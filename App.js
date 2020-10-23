@@ -1,21 +1,24 @@
+import "react-native-gesture-handler";
+import * as React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+
+import HomeScreen from "./screens/Home"
+import StandScreen from "./screens/Stand"
+import OrderScreen from "./screens/Order"
+
+const Stack = createStackNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Bienvenidx!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Stand" component={StandScreen} />
+        <Stack.Screen name="Order" component={OrderScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#512D8B',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
