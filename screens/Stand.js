@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Button, View, Text } from 'react-native';
+import { Image, StyleSheet, Button, View, Text } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 
 
@@ -17,13 +17,15 @@ export default function StandScreen({ route, navigation }) {
   }, [])
 
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+    <View style={styles.container}>
       <Text>¡Felicitaciones!</Text>
       <Text>Escoge una de nuestras prendas únicas</Text>
 
       {products.map((product)=> {
-        return <Button
+        return <Image
             key={product.id}
+            style={styles.product}
+            source={{uri: product.image}}
             title={product.nombre}
             onPress={() => navigation.navigate('Order', { product })} />
       })}
@@ -32,3 +34,18 @@ export default function StandScreen({ route, navigation }) {
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  product: {
+    width: 100,
+    height: 100,
+    borderRadius: 100,
+    overflow: "hidden",
+},
+});
