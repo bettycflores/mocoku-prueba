@@ -6,6 +6,7 @@ import HomeScreen from "./screens/Home";
 import StandScreen from "./screens/Stand";
 import OrderScreen from "./screens/Order";
 import OrderConfirmScreen from "./screens/OrderConfirm";
+import OrderCompletedScreen from "./screens/OrderCompleted";
 
 
 const Stack = createStackNavigator();
@@ -18,6 +19,7 @@ export default function App() {
         <Stack.Screen name="Stand" component={StandScreen} />
         <Stack.Screen name="Order" component={OrderScreen} />
         <Stack.Screen name="OrderConfirm" component={OrderConfirmScreen} />
+        <Stack.Screen name="OrderCompleted" component={OrderCompletedScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
