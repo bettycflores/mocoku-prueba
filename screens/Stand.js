@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useEffect, useState } from "react";
-import {  StyleSheet, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import Heading from "../components/Heading";
 import Product from "../components/Product";
 import Button from "../components/Button";
@@ -8,14 +8,12 @@ import Button from "../components/Button";
 export default function StandScreen({ route, navigation }) {
   const [products, setProducts] = useState([]);
   const [selected, setSelected] = useState({ id: null });
-
   const { stand } = route.params;
 
   useEffect(() => {
     (async () => {
-      const url = `https://prueba2020.monoku.com/api/productos/?${new URLSearchParams(
-        { stand: stand.id }
-      )}`;
+      const query = new URLSearchParams({ stand: stand.id });
+      const url = `https://prueba2020.monoku.com/api/productos/?${query}`;
       const response = await fetch(url);
       const data = await response.json();
       setProducts(data);
@@ -42,14 +40,17 @@ export default function StandScreen({ route, navigation }) {
           );
         })}
       </View>
-      <Button title="Siguiente" 
-      disabled={selected.id === null}
-      styleName="primary"
-      onPress={() => navigation.navigate("Order", {product: selected})}
-      
-      />
+      <View style={{ marginBottom: 40, marginLeft: 20, marginRight: 20 }}>
+        <Button
+          title="Siguiente"
+          disabled={selected.id === null}
+          styleName="primary"
+          style={{ marginBottom: 10 }}
+          onPress={() => navigation.navigate("Order", { product: selected })}
+        />
 
-      <Button title="Atrás" onPress={() => navigation.goBack} />
+        <Button title="Atrás" onPress={() => navigation.goBack} />
+      </View>
     </View>
   );
 }
