@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { Button, View, Text } from "react-native";
+import { View, Text } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import Colors from "../constants/Colors";
 import Heading from "../components/Heading";
+import Button from "../components/Button";
 
 export default function HomeScreen({ navigation }) {
   const [stands, setStands] = useState([]);

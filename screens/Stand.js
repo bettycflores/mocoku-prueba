@@ -1,8 +1,9 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useEffect, useState } from "react";
-import { Button, StyleSheet, View } from "react-native";
+import {  StyleSheet, View } from "react-native";
 import Heading from "../components/Heading";
 import Product from "../components/Product";
+import Button from "../components/Button";
 
 export default function StandScreen({ route, navigation }) {
   const [products, setProducts] = useState([]);
@@ -43,12 +44,12 @@ export default function StandScreen({ route, navigation }) {
       </View>
       <Button title="Siguiente" 
       disabled={selected.id === null}
-      
+      styleName="primary"
       onPress={() => navigation.navigate("Order", {product: selected})}
       
       />
 
-      <Button title="Atrás" onPress={() => navigation.navigate("Home")} />
+      <Button title="Atrás" onPress={() => navigation.goBack} />
     </View>
   );
 }

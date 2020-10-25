@@ -1,6 +1,7 @@
 import React, { useCallback } from "react";
-import { Alert, Image, View, Button } from "react-native";
+import { Alert, Image, View } from "react-native";
 import Heading from "../components/Heading";
+import Button from "../components/Button";
 
 export default function OrderConfirmScreen({ route, navigation }) {
   const { product, option } = route.params;
@@ -48,6 +49,7 @@ export default function OrderConfirmScreen({ route, navigation }) {
         <Button
           title="Pedir"
           onPress={confirm}
+          styleName="primary"
           style={{ marginBottom: 10 }}
         />
         <Button title="Atrás" onPress={() => navigation.goBack()} />

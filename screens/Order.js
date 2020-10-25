@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { Button, View, Text, TouchableOpacity } from 'react-native';
+import {  View, Text, TouchableOpacity } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import Product from "../components/Product"
 import RadioButton from "../components/RadioButton"
+import Button from "../components/Button";
 
 export default function OrderScreen({ route, navigation }) {
   const { product } = route.params;
@@ -61,8 +62,8 @@ export default function OrderScreen({ route, navigation }) {
           ))}
         </View>
 
-      <Button title="Siguiente"           onPress={continueHandler} />
-      <Button title="Atrás" onPress={() => navigation.navigate('Home')} />
+      <Button title="Siguiente" styleName="primary"  onPress={continueHandler} />
+      <Button title="Atrás" onPress={() => navigation.goBack()} />
     </View>
   );
 }
