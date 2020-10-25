@@ -26,7 +26,7 @@ export default function HomeScreen({ navigation }) {
     >
       <StatusBar style="light"></StatusBar>
       <Heading
-        color="#fff"
+        styleName="light"
         title="Bienvenidx"
         subtitle="Escanea el código QR"
       />
