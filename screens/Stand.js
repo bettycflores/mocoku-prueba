@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Image, StyleSheet, Button, View, Text } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
-
+import Heading from "../components/Heading"
 
 export default function StandScreen({ route, navigation }) {
   const [products, setProducts] = useState([])
@@ -18,8 +18,7 @@ export default function StandScreen({ route, navigation }) {
 
   return (
     <View style={styles.container}>
-      <Text>¡Felicitaciones!</Text>
-      <Text>Escoge una de nuestras prendas únicas</Text>
+      <Heading title="¡Felicitaciones!" subtitle="Escoge una de nuestras prendas únicas"/>
 
       <View style={styles.productList}>
         {products.map((product)=> {
@@ -45,6 +44,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   productList: {
+    flex: 1,
     justifyContent: 'center',
     flexDirection: 'row',
     flexWrap: 'wrap',
