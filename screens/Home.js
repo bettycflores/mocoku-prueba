@@ -34,10 +34,12 @@ export default function HomeScreen({ navigation }) {
 
     if (stand !== undefined) {
       setBorderColor(Colors.Success);
-      setBarcodeData(null); // So the next time the user chose the same qr code it will work
 
       // Wait a half a second before navigate to the Stand, so the user can see the green highlight
-      setTimeout(() => navigation.navigate("Stand", { stand }), 5000);
+      setTimeout(() => {
+        navigation.navigate("Stand", { stand });
+        setBarcodeData(null); // So the next time the user chose the same qr code it will works
+      }, 500);
     } else {
       // Show a red border so the user knows the QR code is incorrect.
       setBorderColor(Colors.Error);
@@ -46,9 +48,7 @@ export default function HomeScreen({ navigation }) {
     // Clear the border after .5s
     setTimeout(() => setBorderColor(Colors.Primary), 500);
   };
-
-
-  return (
+    return (
     <View
       style={{
         backgroundColor: Colors.Primary,
@@ -57,7 +57,6 @@ export default function HomeScreen({ navigation }) {
         justifyContent: "center",
       }}
     >
-      <StatusBar style="light" />
       <Heading
         styleName="light"
         title="Bienvenidx"
@@ -92,6 +91,8 @@ export default function HomeScreen({ navigation }) {
           Encuentra los códigos QR y llevate una de nuestras prendas originales.
         </Text>
       </View>
+
+      <StatusBar style="light" />
     </View>
   );
 }

@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import {  View, Text, TouchableOpacity } from 'react-native';
-import { StatusBar } from 'expo-status-bar';
-import Product from "../components/Product"
-import RadioButton from "../components/RadioButton"
+import React, { useState, useEffect, useCallback } from "react";
+import { View, Text, TouchableOpacity, ScrollView } from "react-native";
+import { StatusBar } from "expo-status-bar";
+import Product from "../components/Product";
+import RadioButton from "../components/RadioButton";
 import Button from "../components/Button";
 
 export default function OrderScreen({ route, navigation }) {
@@ -31,13 +31,36 @@ export default function OrderScreen({ route, navigation }) {
   );
 
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <StatusBar style="dark" />
-          <Product product={product} />
-      <Text>¡Escogiste algo increíble!</Text>
-      <Text>Ahora, selecciona una talla.</Text>
+    <View
+      style={{
+        flex: 1,
+        backgroundColor: "#efefef",
 
-      <View style={{ flexDirection: "column", flex: 1 }}>
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
+      <StatusBar style="dark" />
+      <ScrollView
+        style={{ flex: 1, width: "100%" }}
+        contentContainerStyle={{ alignItems: "center" }}
+      >
+        <View
+          style={{
+            marginTop: 80,
+            marginBottom: 40,
+            marginHorizontal: 10,
+            alignItems: "center",
+          }}
+        >
+          <Product product={product} />
+          <TextHeading style={{ textAlign: "center", marginTop: 20 }}>
+            ¡Escogiste algo increíble!
+          </TextHeading>
+          <Text>Ahora, selecciona una talla.</Text>
+        </View>
+
+        <View style={{ flexDirection: "column", flex: 1 }}>
           {options.map((option) => (
             <TouchableOpacity
               key={option.id}
@@ -61,9 +84,29 @@ export default function OrderScreen({ route, navigation }) {
             </TouchableOpacity>
           ))}
         </View>
+      </ScrollView>
 
-      <Button title="Siguiente" styleName="primary"  onPress={continueHandler} />
-      <Button title="Atrás" onPress={() => navigation.goBack()} />
+      <View
+        style={{
+          flex: 0,
+          marginLeft: 20,
+          marginRight: 20,
+          paddingTop: 20,
+          paddingBottom: 20,
+          width: "100%",
+          alignItems: "center",
+          backgroundColor: "#ffffff",
+        }}
+      >
+        <Button
+          title="Siguiente"
+          styleName="primary"
+          onPress={continueHandler}
+          disabled={selected.id === null}
+          style={{ marginBottom: 10 }}
+        />
+        <Button title="Atrás" onPress={() => navigation.goBack()} />
+      </View>
     </View>
   );
 }
