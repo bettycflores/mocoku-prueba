@@ -1,13 +1,13 @@
 import React from "react";
 import { Text, View, Image, TouchableHighlight } from "react-native";
 
-export default function ({ product, selected = false, onPress = () => {} }) {
+export default function ({ product, selected = false, style={}, onPress = () => {} }) {
   return (
     <TouchableHighlight
       onPress={onPress}
-      style={{ margin: 40 }}
       activeOpacity={0.5}
       underlayColor="#fff"
+      style={style}
     >
       <View style={{ alignItems: "center" }}>
         <Image

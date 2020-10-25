@@ -4,6 +4,7 @@ import { StatusBar } from "expo-status-bar";
 import Product from "../components/Product";
 import RadioButton from "../components/RadioButton";
 import Button from "../components/Button";
+import Heading from "../components/Heading";
 
 export default function OrderScreen({ route, navigation }) {
   const { product } = route.params;
@@ -54,10 +55,11 @@ export default function OrderScreen({ route, navigation }) {
           }}
         >
           <Product product={product} />
-          <TextHeading style={{ textAlign: "center", marginTop: 20 }}>
-            ¡Escogiste algo increíble!
-          </TextHeading>
-          <Text>Ahora, selecciona una talla.</Text>
+          <Heading
+            title="¡Escogiste algo increíble!"
+            subtitle="Ahora, selecciona una talla."
+            style={{ textAlign: "center", marginTop: 20 }}
+          ></Heading>
         </View>
 
         <View style={{ flexDirection: "column", flex: 1 }}>

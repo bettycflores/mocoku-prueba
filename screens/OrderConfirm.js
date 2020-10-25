@@ -22,16 +22,16 @@ export default function OrderConfirmScreen({ route, navigation }) {
 
   return (
     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-      <View style={{ marginTop: 80, alignItems: "center" }}>
-        <Heading heading="¡Ya casi terminas!" />
+      <View style={{ marginTop: 40, alignItems: "center" }}>
+        <Heading title="¡Ya casi terminas!" />
       </View>
 
       <View style={{flex: 1, justifyContent: "center"}}>
       <View
         style={{
-          borderRadius: 320,
-          height: 320,
-          width: 320,
+          borderRadius: 300,
+          height: 300,
+          width: 300,
           margin: 10,
           overflow: "hidden",
           alignItems: "center",

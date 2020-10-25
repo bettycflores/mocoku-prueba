@@ -48,7 +48,8 @@ export default function HomeScreen({ navigation }) {
     // Clear the border after .5s
     setTimeout(() => setBorderColor(Colors.Primary), 500);
   };
-    return (
+  
+  return (
     <View
       style={{
         backgroundColor: Colors.Primary,
@@ -76,7 +77,7 @@ export default function HomeScreen({ navigation }) {
             marginBottom: 50,
           }}
         >
-          {hasCameraPermission | (stands.length > 0) && (
+          {(hasCameraPermission && stands.length > 0) && (
             <BarCodeScanner
               barCodeTypes={["org.iso.QRCode"]}
               onBarCodeScanned={onBarCodeRead}

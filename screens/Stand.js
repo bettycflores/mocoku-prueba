@@ -35,11 +35,13 @@ export default function StandScreen({ route, navigation }) {
               onPress={() => setSelected(product)}
               key={product.id}
               product={product}
+              style={{ marginLeft: 20, marginRight: 20 }}
               selected={selected.id == product.id}
             />
           );
         })}
       </View>
+
       <View style={{ marginBottom: 40, marginLeft: 20, marginRight: 20 }}>
         <Button
           title="Siguiente"
@@ -64,10 +66,11 @@ const styles = StyleSheet.create({
   },
   productList: {
     flex: 1,
+    alignContent: "center",
     justifyContent: "center",
+    alignItems: "center",
     flexDirection: "row",
     flexWrap: "wrap",
-    alignItems: "flex-start",
     marginTop: 20,
     marginBottom: 20,
   },

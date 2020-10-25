@@ -9,7 +9,6 @@ export default function Heading({ title, subtitle, styleName = "dark" }) {
       style={{
         alignItems: "center",
         marginTop: 40,
-        paddingVertical: 40,
       }}
     >
       <Text
